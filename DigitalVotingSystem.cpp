@@ -53,7 +53,7 @@ int main(){
 		if(ask == 'G' || ask == 'g')
 			elc.generalBodyVotingResults();
 		else if(ask == 'L' || ask== 'l')
-			elc.localBodyElection();
+			elc.localBodyVotingResults();
 		else
 			cout<<"Invalid Entry!";
 	}
@@ -75,11 +75,12 @@ bool election::voterEligibility (){
 		return false;
 }
 void election::generalBodyElection(){
-	int NAVote, ptiNA = candidatesNA[0], pppNA = candidatesNA[1], pmlnNA = candidatesNA[2],
+	/*ptiNA = candidatesNA[0], pppNA = candidatesNA[1], pmlnNA = candidatesNA[2],
 	anpNA = candidatesNA[3], independentNA = candidatesNA[4], totalVotesNA = candidatesNA[5];
 	
-	int PAVote, ptiPA = candidatesPA[0], pppPA = candidatesPA[1], pmlnPA = candidatesPA[2],
-	anpPA = candidatesPA[3], independentPA = candidatesPA[4], totalVotesPA = candidatesPA[5];
+	ptiPA = candidatesPA[0], pppPA = candidatesPA[1], pmlnPA = candidatesPA[2],
+	anpPA = candidatesPA[3], independentPA = candidatesPA[4], totalVotesPA = candidatesPA[5];*/
+	int NAVote, PAVote;
 	char ask;
 	do{
 		cout<<"\n\n\n\t\t~~~Vote for National Assembly Seat~~~\n";
@@ -88,28 +89,28 @@ void election::generalBodyElection(){
 		switch(NAVote){
 			case 1:
 				cout<<"You have voted to PTI";
-				ptiNA++;
-				totalVotesNA++;
+				candidatesNA[0]++;
+				candidatesNA[5]++;
 				break;
 			case 2:
 				cout<<"You have voted to PPP";
-				pppNA++;
-				totalVotesNA++;
+				candidatesNA[1]++;
+				candidatesNA[5]++;
 				break;
 			case 3:
 				cout<<"You have voted to PMLN";
-				pmlnNA++;
-				totalVotesNA++;
+				candidatesNA[2]++;
+				candidatesNA[5]++;
 				break;
 			case 4:
 				cout<<"You have voted to  ANP";
-				anpNA++;
-				totalVotesNA++;
+				candidatesNA[3]++;
+				candidatesNA[5]++;
 				break;
 			case 5:
 				cout<<"You have voted to Independent Candidate";
-				independentNA++;
-				totalVotesNA++;
+				candidatesNA[4]++;
+				candidatesNA[5]++;
 				break;
 			default:
 				cout<<"Invalid Entry"; 
@@ -121,28 +122,28 @@ void election::generalBodyElection(){
 		switch(PAVote){
 			case 1:
 				cout<<"You have voted to PTI";
-				ptiPA++;
-				totalVotesPA++;
+				candidatesPA[0]++;
+				candidatesPA[5]++;
 				break;
 			case 2:
 				cout<<"You have voted to PPP";
-				pppPA++;
-				totalVotesPA++;
+				candidatesPA[1]++;
+				candidatesPA[5]++;
 				break;
 			case 3:
 				cout<<"You have voted to PMLN";
-				pmlnPA++;
-				totalVotesPA++;
+				candidatesPA[2]++;
+				candidatesPA[5]++;
 				break;
 			case 4:
 				cout<<"You have voted to  ANP";
-				anpPA++;
-				totalVotesPA++;
+				candidatesPA[3]++;
+				candidatesPA[5]++;
 				break;
 			case 5:
 				cout<<"You have voted to Independent Candidate";
-				independentPA++;
-				totalVotesPA++;
+				candidatesPA[4]++;
+				candidatesPA[5]++;
 				break;
 			default:
 				cout<<"Invalid Entry"; 
@@ -152,155 +153,143 @@ void election::generalBodyElection(){
 	}while(ask=='y' || ask == 'Y');	
 }
 void election::localBodyElection(){
-	//for mayer votes
-	int mayerVote, ptiM = candidatesMayer[0], pppM = candidatesMayer[1], pmlnM = candidatesMayer[2],
-	anpM = candidatesMayer[3], independentM = candidatesMayer[4], totalVotesM = candidatesMayer[5];
-	//for counslor votes
-	int counselorVote, ptiC = candidatesCounsler[0], pppC = candidatesCounsler[1], pmlnC = candidatesCounsler[2],
-	anpC = candidatesCounsler[3], independentC = candidatesCounsler[4], totalVotesC = candidatesCounsler[5];
-	//for youth votes
-	int youthVote, ptiY = candidatesYouth[0], pppY = candidatesYouth[1], pmlnY = candidatesYouth[2],
-	anpY = candidatesYouth[3], independentY = candidatesYouth[4], totalVotesY = candidatesYouth[5];
-	//for minority votes	
-	int minorityVote, ptiMi = candidatesMinority[0], pppMi = candidatesMinority[1], pmlnMi = candidatesMinority[2],
-	anpMi = candidatesMinority[3], independentMi = candidatesMinority[4], totalVotesMi = candidatesMinority[5];
-	
-	
-	cout<<"\n\n\t\t~~~Vote for Mayer Seat~~~\n";
-	cout<<"To Vote for PTI press 1.\nTo Vote for PPP press 2.\nTo Vote for PMLN press 3.\nTo Vote for ANP press 4.\nTo Vote for Independent Candidate press 5.\n";
-	cin>>mayerVote;
-	switch(mayerVote){
-		case 1:
-			cout<<"You have voted to PTI";
-			ptiM++;
-			totalVotesM++;
-			break;
-		case 2:
-			cout<<"You have voted to PPP";
-			pppM++;
-			totalVotesM++;
-			break;
-		case 3:
-			cout<<"You have voted to PMLN";
-			pmlnM++;
-			totalVotesM++;
-			break;
-		case 4:
-			cout<<"You have voted to  ANP";
-			anpM++;
-			totalVotesM++;
-			break;
-		case 5:
-			cout<<"You have voted to Independent Candidate";
-			independentM++;
-			totalVotesM++;
-			break;
-		default:
-			cout<<"Invalid Entry"; 
-	}
-	
-
-	cout<<"\n\n\n\t\t~~~Vote for Village Counsler Seat~~~\n";
-	cout<<"To Vote for PTI press 1.\nTo Vote for PPP press 2.\nTo Vote for PMLN press 3.\nTo Vote for ANP press 4.\nTo Vote for Independent Candidate press 5.\n";
-	cin>>counselorVote;
-	switch(counselorVote){
-		case 1:
-			cout<<"You have voted to PTI";
-			ptiC++;
-			totalVotesC++;
-			break;
-		case 2:
-			cout<<"You have voted to PPP";
-			pppC++;
-			totalVotesC++;
-			break;
-		case 3:
-			cout<<"You have voted to PMLN";
-			pmlnC++;
-			totalVotesC++;
-			break;
-		case 4:
-			cout<<"You have voted to  ANP";
-			anpC++;
-			totalVotesC++;
-			break;
-		case 5:
-			cout<<"You have voted to Independent Candidate";
-			independentC++;
-			totalVotesC++;
-			break;
-		default:
-			cout<<"Invalid Entry"; 
-	}
-	
-	
-
-	cout<<"\n\n\n\t\t~~~Vote for Youth Counsler Seat~~~";
-	cout<<"\nTo Vote for PTI press 1.\nTo Vote for PPP press 2.\nTo Vote for PMLN press 3.\nTo Vote for ANP press 4.\nTo Vote for Independent Candidate press 5.\n";
-	cin>>youthVote;
-	switch(youthVote){
-		case 1:
-			cout<<"You have voted to PTI";
-			ptiY++;
-			totalVotesY++;
-			break;
-		case 2:
-			cout<<"You have voted to PPP";
-			pppY++;
-			totalVotesY++;
-			break;
-		case 3:
-			cout<<"You have voted to PMLN";
-			pmlnY++;
-			totalVotesY++;
-			break;
-		case 4:
-			cout<<"You have voted to  ANP";
-			anpY++;
-			totalVotesY++;
-			break;
-		case 5:
-			cout<<"You have voted to Independent Candidate";
-			independentY++;
-			totalVotesY++;
-			break;
-		default:
-			cout<<"Invalid Entry"; 
-	}
-	
-
-	cout<<"\n\n\n\t\t~~~Vote for Minority Counsler Seat~~~";
-	cout<<"\nTo Vote for PTI press 1.\nTo Vote for PPP press 2.\nTo Vote for PMLN press 3.\nTo Vote for ANP press 4.\nTo Vote for Independent Candidate press 5.\n";
-	cin>>minorityVote;
-	switch(minorityVote){
-		case 1:
-			cout<<"You have voted to PTI";
-			ptiMi++;
-			totalVotesMi++;
-			break;
-		case 2:
-			cout<<"You have voted to PPP";
-			pppMi++;
-			totalVotesMi++;
-			break;
-		case 3:
-			cout<<"You have voted to PMLN";
-			pmlnMi++;
-			totalVotesMi++;
-			break;
-		case 4:
-			cout<<"You have voted to  ANP";
-			anpMi++;
-			totalVotesMi++;
-			break;
-		case 5:
-			cout<<"You have voted to Independent Candidate";
-			independentMi++;
-			totalVotesMi++;
-			break;
-		default:
-			cout<<"Invalid Entry"; 
-	}
+	int mayerVote, counselorVote, youthVote, minorityVote;
+	char ask;
+	do{
+		cout<<"\n\n\t\t~~~Vote for Mayer Seat~~~\n";
+		cout<<"To Vote for PTI press 1.\nTo Vote for PPP press 2.\nTo Vote for PMLN press 3.\nTo Vote for ANP press 4.\nTo Vote for Independent Candidate press 5.\n";
+		cin>>mayerVote;
+		switch(mayerVote){
+			case 1:
+				cout<<"You have voted to PTI";
+				candidatesMayer[0]++;
+				candidatesMayer[5]++;
+				break;
+			case 2:
+				cout<<"You have voted to PPP";
+				candidatesMayer[1]++;
+				candidatesMayer[5]++;
+				break;
+			case 3:
+				cout<<"You have voted to PMLN";
+				candidatesMayer[2]++;
+				candidatesMayer[5]++;
+				break;
+			case 4:
+				cout<<"You have voted to  ANP";
+				candidatesMayer[3]++;
+				candidatesMayer[5]++;
+				break;
+			case 5:
+				cout<<"You have voted to Independent Candidate";
+				candidatesMayer[4]++;
+				candidatesMayer[5]++;
+				break;
+			default:
+				cout<<"Invalid Entry"; 
+		}
+		
+		cout<<"\n\n\n\t\t~~~Vote for Village Counsler Seat~~~\n";
+		cout<<"To Vote for PTI press 1.\nTo Vote for PPP press 2.\nTo Vote for PMLN press 3.\nTo Vote for ANP press 4.\nTo Vote for Independent Candidate press 5.\n";
+		cin>>counselorVote;
+		switch(counselorVote){
+			case 1:
+				cout<<"You have voted to PTI";
+				candidatesCounsler[0]++;
+				candidatesCounsler[5]++;
+				break;
+			case 2:
+				cout<<"You have voted to PPP";
+				candidatesCounsler[1]++;
+				candidatesCounsler[5]++;
+				break;
+			case 3:
+				cout<<"You have voted to PMLN";
+				candidatesCounsler[2]++;
+				candidatesCounsler[5]++;
+				break;
+			case 4:
+				cout<<"You have voted to  ANP";
+				candidatesCounsler[3]++;
+				candidatesCounsler[5]++;
+				break;
+			case 5:
+				cout<<"You have voted to Independent Candidate";
+				candidatesCounsler[4]++;
+				candidatesCounsler[5]++;
+				break;
+			default:
+				cout<<"Invalid Entry"; 
+		}
+		
+		cout<<"\n\n\n\t\t~~~Vote for Youth Counsler Seat~~~";
+		cout<<"\nTo Vote for PTI press 1.\nTo Vote for PPP press 2.\nTo Vote for PMLN press 3.\nTo Vote for ANP press 4.\nTo Vote for Independent Candidate press 5.\n";
+		cin>>youthVote;
+		switch(youthVote){
+			case 1:
+				cout<<"You have voted to PTI";
+				candidatesYouth[0]++;
+				candidatesYouth[5]++;
+				break;
+			case 2:
+				cout<<"You have voted to PPP";
+				candidatesYouth[1]++;
+				candidatesYouth[5]++;
+				break;
+			case 3:
+				cout<<"You have voted to PMLN";
+				candidatesYouth[2]++;
+				candidatesYouth[5]++;
+				break;
+			case 4:
+				cout<<"You have voted to  ANP";
+				candidatesYouth[3]++;
+				candidatesYouth[5]++;
+				break;
+			case 5:
+				cout<<"You have voted to Independent Candidate";
+				candidatesYouth[4]++;
+				candidatesYouth[5]++;
+				break;
+			default:
+				cout<<"Invalid Entry"; 
+		}
+		
+		cout<<"\n\n\n\t\t~~~Vote for Minority Counsler Seat~~~";
+		cout<<"\nTo Vote for PTI press 1.\nTo Vote for PPP press 2.\nTo Vote for PMLN press 3.\nTo Vote for ANP press 4.\nTo Vote for Independent Candidate press 5.\n";
+		cin>>minorityVote;
+		switch(minorityVote){
+			case 1:
+				cout<<"You have voted to PTI";
+				candidatesMinority[0]++;
+				candidatesMinority[5]++;
+				break;
+			case 2:
+				cout<<"You have voted to PPP";
+				candidatesMinority[1]++;
+				candidatesMinority[5]++;
+				break;
+			case 3:
+				cout<<"You have voted to PMLN";
+				candidatesMinority[2]++;
+				candidatesMinority[5]++;
+				break;
+			case 4:
+				cout<<"You have voted to  ANP";
+				candidatesMinority[3]++;
+				candidatesMinority[5]++;
+				break;
+			case 5:
+				cout<<"You have voted to Independent Candidate";
+				candidatesMinority[4]++;
+				candidatesMinority[5]++;
+				break;
+			default:
+				cout<<"Invalid Entry"; 
+		}
+		cout<<"To poll again press 'y':  ";
+		cin>>ask;
+	}while(ask=='y' || ask=='Y');
 }
 void election::generalBodyVotingResults(){
 	cout<<"\n\n\n\t\tTotal National Assembly Candidates are: "<<5<<"\n\t\tTotall Votes Polled: "<<candidatesNA[5];
@@ -321,5 +310,35 @@ void election::generalBodyVotingResults(){
 	
 }
 void election::localBodyVotingResults(){
+	cout<<"\n\n\n\t\tTotal Mayer Candidates are: "<<5<<"\n\t\tTotall Votes Polled: "<<candidatesMayer[5];
+	cout<<"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+	cout<<"Candidate\t\t\t\tVotes";
+	cout<<"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+	cout<<"PTI\t\t\t\t\t"<<candidatesMayer[0]<<"\nPPPP\t\t\t\t\t"<<candidatesMayer[1]<<"\nPML(N)\t\t\t\t\t"<<candidatesMayer[2]<<
+	"\nANP\t\t\t\t\t"<<candidatesMayer[3]<<"\nINDEPENDENT\t\t\t\t"<<candidatesMayer[4];
+	cout<<"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+		
+	cout<<"\n\n\n\t\tTotal Village Councler Candidates are: "<<5<<"\n\t\tTotall Votes Polled: "<<candidatesCounsler[5];
+	cout<<"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+	cout<<"Candidate\t\t\t\tVotes";
+	cout<<"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+	cout<<"PTI\t\t\t\t\t"<<candidatesCounsler[0]<<"\nPPPP\t\t\t\t\t"<<candidatesCounsler[1]<<"\nPML(N)\t\t\t\t\t"<<candidatesCounsler[2]<<
+	"\nANP\t\t\t\t\t"<<candidatesCounsler[3]<<"\nINDEPENDENT\t\t\t\t"<<candidatesCounsler[4];
+	cout<<"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
 	
+	cout<<"\n\n\n\t\tTotal Youth Candidates are: "<<5<<"\n\t\tTotall Votes Polled: "<<candidatesYouth[5];
+	cout<<"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+	cout<<"Candidate\t\t\t\tVotes";
+	cout<<"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+	cout<<"PTI\t\t\t\t\t"<<candidatesYouth[0]<<"\nPPPP\t\t\t\t\t"<<candidatesYouth[1]<<"\nPML(N)\t\t\t\t\t"<<candidatesYouth[2]<<
+	"\nANP\t\t\t\t\t"<<candidatesYouth[3]<<"\nINDEPENDENT\t\t\t\t"<<candidatesYouth[4];
+	cout<<"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+	
+		cout<<"\n\n\n\t\tTotal Minority Candidates are: "<<5<<"\n\t\tTotall Votes Polled: "<<candidatesMinority[5];
+	cout<<"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+	cout<<"Candidate\t\t\t\tVotes";
+	cout<<"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+	cout<<"PTI\t\t\t\t\t"<<candidatesMinority[0]<<"\nPPPP\t\t\t\t\t"<<candidatesMinority[1]<<"\nPML(N)\t\t\t\t\t"<<candidatesMinority[2]<<
+	"\nANP\t\t\t\t\t"<<candidatesMinority[3]<<"\nINDEPENDENT\t\t\t\t"<<candidatesMinority[4];
+	cout<<"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
 }
