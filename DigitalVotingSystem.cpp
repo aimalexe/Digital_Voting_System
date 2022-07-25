@@ -1,4 +1,7 @@
-//Digital Voting System
+/*
+Project : Digital Voting System.
+By : Aimal Khan and Awais Saddiqui.
+*/
 
 #include <iostream>
 using namespace std;
@@ -34,20 +37,32 @@ int main(){
 	election elc;
 	int isGenralOrLocal;
 	bool isEligible;
-	char ask;
-	isEligible = elc.voterEligibility();
-	if (isEligible){
-		tryAgain:
-		cout<<"\nFor general Election press 1.\nFor local Election press 2.\n";
-		cin>>isGenralOrLocal;
-		if (isGenralOrLocal==1)
-			elc.generalBodyElection();
-		else if (isGenralOrLocal==2)
-			elc.localBodyElection();
-		else{
-			cout<<"Invalid Entry! Try again";
-			goto tryAgain;
+	char ask, pollAgain;
+	do{
+		isEligible = elc.voterEligibility();
+		if (isEligible){
+			tryAgain:
+			cout<<"\nFor general Election press 1.\nFor local Election press 2.\n";
+			cin>>isGenralOrLocal;
+			if (isGenralOrLocal==1)
+				elc.generalBodyElection();
+			else if (isGenralOrLocal==2)
+				elc.localBodyElection();
+			else{
+				cout<<"Invalid Entry! Try again";
+				goto tryAgain;
+			}
 		}
+		else
+			cout<<"You are inelegible or invalid credentials entered!";
+		cout<<"\nThank You!\nTo poll again press 'y': ";
+		cin>>pollAgain;
+		cout<<"\n\n\n";
+	}while(pollAgain == 'y' || pollAgain == 'Y');
+	int pin;
+	cout<<"To see the results enter the 'secret 4-digit pin: ";
+	cin>>pin;
+	if(pin == 1234){
 		cout<<"\n\nTo see the results of general body election. Type 'G'\nOr to see the results of local body election. Type 'L':  ";
 		cin>>ask;
 		if(ask == 'G' || ask == 'g')
@@ -57,9 +72,8 @@ int main(){
 		else
 			cout<<"Invalid Entry!";
 	}
-	else{
-		cout<<"You are inelegible or invalid credentials entered!";
-	}
+	else
+		cout<<"You have no authority to see the results!";
 	return 0;
 }
 bool election::voterEligibility (){
@@ -69,7 +83,7 @@ bool election::voterEligibility (){
 	cout<<"Type your ballet no.=";
 	cin>>person.balletNo;
 	
-	if(person.age>=18 && person.balletNo == 0000)
+	if((person.age>=18 && person.age<70) && (person.balletNo == 1111 || person.balletNo == 2222))
 		return true;
 	else
 		return false;
@@ -81,8 +95,6 @@ void election::generalBodyElection(){
 	ptiPA = candidatesPA[0], pppPA = candidatesPA[1], pmlnPA = candidatesPA[2],
 	anpPA = candidatesPA[3], independentPA = candidatesPA[4], totalVotesPA = candidatesPA[5];*/
 	int NAVote, PAVote;
-	char ask;
-	do{
 		cout<<"\n\n\n\t\t~~~Vote for National Assembly Seat~~~\n";
 		cout<<"To Vote for PTI press 1.\nTo Vote for PPP press 2.\nTo Vote for PMLN press 3.\nTo Vote for ANP press 4.\nTo Vote for Independent Candidate press 5.\n";	
 		cin>>NAVote;
@@ -147,15 +159,11 @@ void election::generalBodyElection(){
 				break;
 			default:
 				cout<<"Invalid Entry"; 
-		}
-		cout<<"\n\nDo you want to poll again? Press 'y': ";
-		cin>>ask;
-	}while(ask=='y' || ask == 'Y');	
+		}	
 }
 void election::localBodyElection(){
 	int mayerVote, counselorVote, youthVote, minorityVote;
-	char ask;
-	do{
+	
 		cout<<"\n\n\t\t~~~Vote for Mayer Seat~~~\n";
 		cout<<"To Vote for PTI press 1.\nTo Vote for PPP press 2.\nTo Vote for PMLN press 3.\nTo Vote for ANP press 4.\nTo Vote for Independent Candidate press 5.\n";
 		cin>>mayerVote;
@@ -287,9 +295,6 @@ void election::localBodyElection(){
 			default:
 				cout<<"Invalid Entry"; 
 		}
-		cout<<"To poll again press 'y':  ";
-		cin>>ask;
-	}while(ask=='y' || ask=='Y');
 }
 void election::generalBodyVotingResults(){
 	cout<<"\n\n\n\t\tTotal National Assembly Candidates are: "<<5<<"\n\t\tTotall Votes Polled: "<<candidatesNA[5];
