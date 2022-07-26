@@ -138,7 +138,7 @@ void election::generalBodyElection(){
 				cout<<"Invalid Entry"; 
 		}
 		sleep(2);
-		system("cls");
+		//system("cls");
 		
 		cout<<"\n\n\n\t\t~~~Vote for Provincial  Assembly Seat~~~\n";
 		cout<<"To Vote for PTI press 1.\nTo Vote for PPP press 2.\nTo Vote for PMLN press 3.\nTo Vote for ANP press 4.\nTo Vote for Independent Candidate press 5.\n";	
@@ -325,8 +325,8 @@ void election::generalBodyVotingResults(){
 	cout<<"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
 	cout<<"Candidate\t\t\t\tVotes";
 	cout<<"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-	cout<<"PTI\t\t\t\t\t"<<candidatesNA[0]<<"\nPPPP\t\t\t\t\t"<<candidatesNA[1]<<"\nPML(N)\t\t\t\t\t"<<candidatesNA[2]<<
-	"\nANP\t\t\t\t\t"<<candidatesNA[3]<<"\nINDEPENDENT\t\t\t\t"<<candidatesNA[4];
+	cout<<"PTI\t\t\t\t\t"<<candidatesPA[0]<<"\nPPPP\t\t\t\t\t"<<candidatesPA[1]<<"\nPML(N)\t\t\t\t\t"<<candidatesPA[2]<<
+	"\nANP\t\t\t\t\t"<<candidatesPA[3]<<"\nINDEPENDENT\t\t\t\t"<<candidatesPA[4];
 	cout<<"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
 	
 }
