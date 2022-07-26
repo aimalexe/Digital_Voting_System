@@ -4,6 +4,8 @@ By : Aimal Khan and Awais Saddiqui.
 */
 
 #include <iostream>
+#include <windows.h>
+#include <stdio.h>
 using namespace std;
 
 class election{
@@ -40,10 +42,12 @@ int main(){
 	char ask, pollAgain;
 	do{
 		isEligible = elc.voterEligibility();
+		system("cls");
 		if (isEligible){
 			tryAgain:
 			cout<<"\nFor general Election press 1.\nFor local Election press 2.\n";
 			cin>>isGenralOrLocal;
+			system("cls");
 			if (isGenralOrLocal==1)
 				elc.generalBodyElection();
 			else if (isGenralOrLocal==2)
@@ -55,16 +59,20 @@ int main(){
 		}
 		else
 			cout<<"You are inelegible or invalid credentials entered!";
+		sleep(2);
+		system("cls");
 		cout<<"\nThank You!\nTo poll again press 'y': ";
 		cin>>pollAgain;
 		cout<<"\n\n\n";
 	}while(pollAgain == 'y' || pollAgain == 'Y');
 	int pin;
+	system("cls");
 	cout<<"To see the results enter the 'secret 4-digit pin: ";
 	cin>>pin;
 	if(pin == 1234){
 		cout<<"\n\nTo see the results of general body election. Type 'G'\nOr to see the results of local body election. Type 'L':  ";
 		cin>>ask;
+		system("cls");
 		if(ask == 'G' || ask == 'g')
 			elc.generalBodyVotingResults();
 		else if(ask == 'L' || ask== 'l')
@@ -78,6 +86,7 @@ int main(){
 }
 bool election::voterEligibility (){
 	criteria person;
+	system("cls");
 	cout<<"Enter Your age? =";
 	cin>>person.age;
 	cout<<"Type your ballet no.=";
@@ -95,6 +104,7 @@ void election::generalBodyElection(){
 	ptiPA = candidatesPA[0], pppPA = candidatesPA[1], pmlnPA = candidatesPA[2],
 	anpPA = candidatesPA[3], independentPA = candidatesPA[4], totalVotesPA = candidatesPA[5];*/
 	int NAVote, PAVote;
+	system("cls");
 		cout<<"\n\n\n\t\t~~~Vote for National Assembly Seat~~~\n";
 		cout<<"To Vote for PTI press 1.\nTo Vote for PPP press 2.\nTo Vote for PMLN press 3.\nTo Vote for ANP press 4.\nTo Vote for Independent Candidate press 5.\n";	
 		cin>>NAVote;
@@ -127,6 +137,8 @@ void election::generalBodyElection(){
 			default:
 				cout<<"Invalid Entry"; 
 		}
+		sleep(2);
+		system("cls");
 		
 		cout<<"\n\n\n\t\t~~~Vote for Provincial  Assembly Seat~~~\n";
 		cout<<"To Vote for PTI press 1.\nTo Vote for PPP press 2.\nTo Vote for PMLN press 3.\nTo Vote for ANP press 4.\nTo Vote for Independent Candidate press 5.\n";	
@@ -163,7 +175,8 @@ void election::generalBodyElection(){
 }
 void election::localBodyElection(){
 	int mayerVote, counselorVote, youthVote, minorityVote;
-	
+		
+		system("cls");
 		cout<<"\n\n\t\t~~~Vote for Mayer Seat~~~\n";
 		cout<<"To Vote for PTI press 1.\nTo Vote for PPP press 2.\nTo Vote for PMLN press 3.\nTo Vote for ANP press 4.\nTo Vote for Independent Candidate press 5.\n";
 		cin>>mayerVote;
@@ -196,7 +209,8 @@ void election::localBodyElection(){
 			default:
 				cout<<"Invalid Entry"; 
 		}
-		
+		sleep(2);
+		system("cls");
 		cout<<"\n\n\n\t\t~~~Vote for Village Counsler Seat~~~\n";
 		cout<<"To Vote for PTI press 1.\nTo Vote for PPP press 2.\nTo Vote for PMLN press 3.\nTo Vote for ANP press 4.\nTo Vote for Independent Candidate press 5.\n";
 		cin>>counselorVote;
@@ -229,7 +243,8 @@ void election::localBodyElection(){
 			default:
 				cout<<"Invalid Entry"; 
 		}
-		
+		sleep(2);
+		system("cls");
 		cout<<"\n\n\n\t\t~~~Vote for Youth Counsler Seat~~~";
 		cout<<"\nTo Vote for PTI press 1.\nTo Vote for PPP press 2.\nTo Vote for PMLN press 3.\nTo Vote for ANP press 4.\nTo Vote for Independent Candidate press 5.\n";
 		cin>>youthVote;
@@ -262,7 +277,8 @@ void election::localBodyElection(){
 			default:
 				cout<<"Invalid Entry"; 
 		}
-		
+		sleep(2);
+		system("cls");
 		cout<<"\n\n\n\t\t~~~Vote for Minority Counsler Seat~~~";
 		cout<<"\nTo Vote for PTI press 1.\nTo Vote for PPP press 2.\nTo Vote for PMLN press 3.\nTo Vote for ANP press 4.\nTo Vote for Independent Candidate press 5.\n";
 		cin>>minorityVote;
